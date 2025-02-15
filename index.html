@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Social Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let loader = document.querySelector(".loader");
+            let welcomeText = document.querySelector(".loader p");
+            let text = "Welcome To IEEE MET SB !";
+            let index = 0;
+    
+            let titleElement = document.getElementById("typing-title");
+            let titleText = titleElement.innerHTML;
+            titleElement.innerHTML = ""; // إفراغ العنوان قبل بدء الكتابة
+            titleElement.style.opacity = "0"; // إخفاء العنوان مبدئيًا
+    
+            document.body.style.display = "block";
+            loader.style.display = "flex";
+            welcomeText.innerHTML = ""; // تأكد أن النص فارغ بالبداية
+    
+            // دالة طباعة النص حرف بحرف (للـ Welcome)
+            function typeEffect() {
+                if (index < text.length) {
+                    welcomeText.innerHTML += text.charAt(index);
+                    index++;
+                    setTimeout(typeEffect, 150); // سرعة الكتابة
+                }
+            }
+    
+            // بدأ كتابة النص بعد نصف ثانية
+            setTimeout(typeEffect, 500);
+    
+            // بعد 4.7 ثانية، اختفاء اللوادر وفتح الصفحة تدريجيًا
+            setTimeout(() => {
+                loader.style.display = "none";
+                document.body.style.animation = "fadeIn 1s ease-in";
+                titleElement.style.opacity = "1"; // إظهار العنوان ببطء
+                typeTitle(); // تشغيل تأثير الكتابة للعنوان
+            }, 4700);
+    
+            // تأثير الكتابة لعنوان "IEEE MET SB"
+            function typeTitle() {
+                let i = 0;
+                function writeTitle() {
+                    if (i < titleText.length) {
+                        titleElement.innerHTML += titleText.charAt(i);
+                        i++;
+                        setTimeout(writeTitle, 100);
+                    } else {
+                        titleElement.style.borderRight = "none"; // إزالة المؤشر بعد انتهاء الكتابة
+                    }
+                }
+                setTimeout(writeTitle, 1000); // تأخير قبل بدء كتابة العنوان
+            }
+        });
+    </script>
+    
+</head>
+
+<body>
+
+    <div class="loader">
+        <p>Welcome To IEEE MET SB !</p>
+        <div class="spinner"></div>
+    </div>
+    <div class="container">
+        <img src="img/IEEE LOGO 1.jpg" alt="Profile Picture" class="profile-pic">
+        <h1 id="typing-title">IEEE MET SB</h1>
+        <p><strong>IEEE MET Student Branch</strong>
+            is a vibrant community of engineering
+            enthusiasts, united by a shared passion
+            for technology.</p>
+        <div class="social-buttons">
+            <a target="_blank" href="https://www.facebook.com/profile.php?id=61560937966305"><i class="fab fa-facebook"></i> Facebook</a>
+            <a target="_blank" href="https://wa.me/201026802863"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            <a target="_blank" href="https://www.instagram.com/ieeemetsb?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fab fa-instagram"></i> Instagram</a>
+            <a target="_blank" href="https://www.linkedin.com/company/ieee-met-sb-pioneers/"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a target="_blank" href="https://www.tiktok.com/@ieee.met?_t=ZS-8twBiSCiSgB&_r=1"><i class="fab fa-tiktok"></i> TikTok</a>
+            <a target="_blank" href="mailto:mahmoudassy279@ieee.org"><i class="fas fa-envelope"></i> Email</a>
+        </div>
+        <br>
+        <br>
+        <footer>
+            <div class="footer-container">
+                <p>&copy; 2025 IEEE MET SB.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
