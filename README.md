@@ -26,6 +26,6 @@ A simple and elegant **personal social media hub** that provides quick access to
    - Edit `style.css` and modify the background or button colors to match your brand.  
 
 ## 📸 Preview  
-![Preview](preview.png)  
+[Preview](https://ali-abdelnaser.github.io/IEEE-Social-Media/)  
 
 
